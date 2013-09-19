@@ -1,0 +1,23 @@
+<%
+// Example
+var log = new Log();
+var ironman = require('modules/ironman.js').ironman;
+var i = new ironman();
+var awesomeFunction = function awesomeFunction(argument){
+	log.info(argument);
+}
+/*
+	We can use ironman to manage the function as below
+*/
+var managed_awesomeFunction = i.armor(awesomeFunction, {throttle:5});
+try{
+	managed_awesomeFunction("Inside the awesome function");
+	managed_awesomeFunction("Inside the awesome function");
+	managed_awesomeFunction("Inside the awesome function");
+	managed_awesomeFunction("Inside the awesome function");
+	managed_awesomeFunction("Inside the awesome function");
+	//It will throttle here
+	managed_awesomeFunction("Inside the awesome function");
+}catch(er){
+}
+%>

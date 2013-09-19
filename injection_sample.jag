@@ -1,0 +1,20 @@
+<%
+// Example
+var log = new Log();
+var ironman = require('modules/ironman.js').ironman;
+var i = new ironman();
+var awesomeFunction = function awesomeFunction(argument){
+	log.info(argument);
+}
+/* 
+	Another usecase would be to get functions via a namespace
+*/
+i.inject(awesomeFunction, 'classic' , "awesomeFunction");
+
+//Somewhere else with the same ironman object
+try{
+	i.call('awesomeFunction', 'classic', "Inside the awesome function");
+}catch(e){
+	
+}
+%>
